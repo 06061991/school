@@ -10,6 +10,6 @@ WORKDIR /usr/src/app
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY --from=build /usr/src/app/dist/angularschool    /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/angularschool/browser    /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
