@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 #stage 2 : run
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf
-RUN apt-get update && apt-get install -y iputils-ping
+
 COPY --from=build /usr/src/app/dist/angularschool    /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
