@@ -3,7 +3,7 @@ FROM node:23.11.0 AS build
 RUN npm install -g @angular/cli@16.2
 WORKDIR /usr/src/app
  COPY package*.json ./
- RUN npm install -legacy-peer-deps
+ RUN npm install --legacy-peer-deps
  COPY . .
  RUN ng build
 #stage 2 : run
