@@ -3,7 +3,7 @@ on:
   push:
     Branches:
       - test2
-  jobs:
+jobs:
     push_to_dockerhub:
       name: push image to docker hub
       run_on: ubuntu-latest
