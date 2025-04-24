@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
  COPY package*.json  ./
  RUN npm install --legacy-peer-deps
  COPY . .
- RUN which ng
+ RUN npm install webpack --save-dev
  RUN ng build
 #stage 2 : run
 FROM nginx:alpine
