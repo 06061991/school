@@ -4,22 +4,22 @@ on:
     Branches:
       - test2
 jobs:
-    push_to_dockerhub:
-      name: push image to docker hub
-      run_on: ubuntu-latest
-      steps:
-        - name: checkout the repo
-        - uses: actions/checkout@v4
-        - name: set up docker buildx
-        - uses: docker/setup-buildx-action@v3
-        - name: login to docker hub
-          uses: docker/login-action@v3
-          with:
-            username: ${{ vars.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_TOKEN }}
-        - name: build and push docker image
-        - uses: docker/build-push-action@v4
-          with:
-            context: .
-            push: true
-            tags: Angular/Angularschool:1.1.${{github.run_number}}
+  push_to_dockerhub:
+    name: push image to docker hub
+    run_on: ubuntu-latest
+    steps:
+      - name: checkout the repo
+      - uses: actions/checkout@v4
+      - name: set up docker buildx
+      - uses: docker/setup-buildx-action@v3
+      - name: login to docker hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: build and push docker image
+      - uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: Angular/Angularschool:1.1.${{github.run_number}}
