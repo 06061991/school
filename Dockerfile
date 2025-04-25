@@ -1,7 +1,7 @@
 # stage 1 : build Angular application
 FROM node:18.12-alpine AS build
 RUN npm install -g @angular/cli@16.2
-WORKDIR /usr/src/app
+WORKDIR /angularschool/src/app
  COPY package*.json  ./
  RUN npm install --legacy-peer-deps
  COPY . .
